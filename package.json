@@ -1,22 +1,43 @@
 {
-  "name": "soda-seller",
+  "name": "soda-practice",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/css": "^11.11.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
+    "firebase": "^10.5.2",
+    "framer-motion": "^10.16.4",
+    "gsap": "^3.12.5",
+    "lil-gui": "^0.19.2",
+    "lodash": "^4.17.21",
+    "lodash.flatten": "^4.4.0",
+    "lodash.slice": "^4.2.0",
+    "next": "15.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.2.3"
+    "react-query": "^3.39.3",
+    "three": "^0.174.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/lodash": "^4",
+    "@types/lodash.flatten": "^4.4.7",
+    "@types/lodash.slice": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
-    "@types/react-dom": "^19"
+    "@types/react-dom": "^19",
+    "@types/three": "^0.174.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "typescript": "^5",
+    "webpack-bundle-analyzer": "^4.9.1"
   }
 }

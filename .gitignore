@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/src/pages/testmock.tsx
 
 # next.js
 /.next/
