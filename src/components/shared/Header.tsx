@@ -1,33 +1,29 @@
 import { colors } from "@/styles/colorPalette";
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface Sections {
+interface MainSections {
   drinksRef: React.RefObject<HTMLDivElement | null>;
   storyRef: React.RefObject<HTMLDivElement | null>;
   exploreRef: React.RefObject<HTMLDivElement | null>;
 }
 
 interface HeaderProps {
-  sections: Sections;
+  sections: MainSections;
 }
 
 const Header = ({ sections }: HeaderProps) => {
   const { drinksRef, storyRef, exploreRef } = sections;
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
 
   // 스크롤 이벤트
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(currentScrollY);
+      setIsVisible(currentScrollY < lastScrollY.current);
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -36,7 +32,7 @@ const Header = ({ sections }: HeaderProps) => {
     };
   }, [lastScrollY]);
 
-  const handleScrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
+  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
     if (sectionRef.current) {
       const offsetTop = sectionRef.current.offsetTop;
       const headerHeight = 50; // 헤더 높이
@@ -51,10 +47,10 @@ const Header = ({ sections }: HeaderProps) => {
   return (
     <HeaderWrapper isVisible={isVisible}>
       <MenuWrapper>
-        <MenuItem onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>HOME</MenuItem>
-        <MenuItem onClick={() => handleScrollToSection(drinksRef)}>DRINKS</MenuItem>
-        <MenuItem onClick={() => handleScrollToSection(storyRef)}>STORY</MenuItem>
-        <MenuItem onClick={() => handleScrollToSection(exploreRef)}>EXPLORE</MenuItem>
+        <NavItem onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>HOME</NavItem>
+        <NavItem onClick={() => scrollToSection(drinksRef)}>DRINKS</NavItem>
+        <NavItem onClick={() => scrollToSection(storyRef)}>STORY</NavItem>
+        <NavItem onClick={() => scrollToSection(exploreRef)}>EXPLORE</NavItem>
       </MenuWrapper>
     </HeaderWrapper>
   );
@@ -71,6 +67,7 @@ const HeaderWrapper = styled.header<{ isVisible: boolean }>`
   top: 0;
   right: 0;
   z-index: 99;
+  background-color: transparent;
   transition: transform 0.3s ease-in-out;
   transform: ${({ isVisible }) => (isVisible ? "translateY(0)" : "translateY(-100%)")};
 
@@ -91,7 +88,7 @@ const MenuWrapper = styled.div`
   gap: 20px;
 `;
 
-const MenuItem = styled.div`
+const NavItem = styled.div`
   text-align: right;
   font-family: var(--encode-sans);
   font-weight: 800;
