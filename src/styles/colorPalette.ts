@@ -8,7 +8,7 @@ export const colorPalette = css`
     --mint: #00c9af;
     --darkMint: #007562;
     --peach: #ffc0b7;
-    --drakPeach: #ff8982;
+    --darkPeach: #ff8982;
     --redOrange: #c25450;
     --gray50: rgba(73, 70, 67, 0.47);
     --gray100: rgba(58, 58, 58, 0.1);
@@ -23,7 +23,7 @@ export const colors = {
   mint: "var(--mint)",
   darkMint: "var(--darkMint)",
   peach: "var(--peach)",
-  drakPeach: "var(--drakPeach)",
+  darkPeach: "var(--darkPeach)",
   redOrange: "var(--redOrange)",
   gray50: "var(--gray50)",
   gray100: "var(--gray100)",
