@@ -2,7 +2,7 @@ import { colors } from "@/styles/colorPalette";
 import styled from "@emotion/styled";
 import Text from "@shared/Text";
 import Nutrition from "../widgets/Nutrition";
-import Paragraph from "@/components/shared/Paragraph";
+import Paragraph from "@shared/Paragraph";
 
 const StorySection = () => {
   return (

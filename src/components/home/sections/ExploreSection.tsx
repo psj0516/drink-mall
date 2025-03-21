@@ -1,4 +1,4 @@
-import Paragraph from "@/components/shared/Paragraph";
+import Paragraph from "@shared/Paragraph";
 import { colors } from "@/styles/colorPalette";
 import styled from "@emotion/styled";
 import { useRouter } from "next/navigation";
@@ -70,7 +70,7 @@ const ExploreSection = () => {
 
 export default ExploreSection;
 
-const ExploreSectionWrapper  = styled.div`
+const ExploreSectionWrapper = styled.div`
   width: 100%;
   background-color: ${colors.redOrange};
   font-family: var(--nanum-gothic);

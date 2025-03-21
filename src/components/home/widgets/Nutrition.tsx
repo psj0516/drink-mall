@@ -1,8 +1,8 @@
 import { colors } from "@/styles/colorPalette";
 import styled from "@emotion/styled";
 import Text from "@shared/Text";
-import Flex from "@/components/shared/Flex";
-import Spacing from "@/components/shared/Spacing";
+import Flex from "@shared/Flex";
+import Spacing from "@shared/Spacing";
 
 const Nutrition = () => {
   return (
