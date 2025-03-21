@@ -3,15 +3,9 @@ import styled from "@emotion/styled";
 import { getRandomDrink } from "@/remote/drink";
 import { useEffect, useState } from "react";
 import { Drink } from "@/models/drink";
+import { drinkTypeMap } from "@constants/drink";
 import Skeleton from "@shared/Skeleton";
 import withSuspense from "@/hooks/withSuspense";
-
-const drinkTypeMap: Record<number, string> = {
-  0: "탄산음료",
-  1: "스무디",
-  2: "주스",
-  3: "제로 소다",
-};
 
 function DrinkInfo() {
   const [drink, setDrink] = useState<Drink | null>(null);
@@ -66,7 +60,9 @@ export function DrinkInfoSkeleton() {
           <DrinkTitle>
             <Skeleton width={200} height={50} />
           </DrinkTitle>
-          <Skeleton width={200} height={400} />
+          <DrinkDesc>
+            <Skeleton width={200} height={200} />
+          </DrinkDesc>
         </DrinkDescBox>
       </DrinkDescContainer>
     </DrinkInfoWrapper>
